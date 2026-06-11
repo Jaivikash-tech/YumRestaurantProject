@@ -1,0 +1,98 @@
+<nav *ngIf="!isAdminPage"
+ class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+ <div class="container">
+
+  <a
+   class="navbar-brand"
+   routerLink="/">
+
+   Yum Restaurant
+
+  </a>
+
+  <div>
+
+   <a
+    class="btn btn-light me-2"
+    routerLink="/foods">
+
+    Menu
+
+   </a>
+
+   <ng-container *ngIf="isLoggedIn">
+     <a
+      class="btn btn-light me-2"
+      routerLink="/cart">
+
+      Cart
+
+     </a>
+
+     <a
+      class="btn btn-light me-2"
+      routerLink="/address">
+
+      Address
+
+     </a>
+
+     <a
+      class="btn btn-light"
+      routerLink="/orders">
+
+      Orders
+
+     </a>
+   </ng-container>
+
+   <ng-container *ngIf="!isLoggedIn && !isAdminLoggedIn">
+     <a
+      class="btn btn-outline-light me-2 ms-2"
+      routerLink="/login">
+
+      Login
+
+     </a>
+
+     <a
+      class="btn btn-light"
+      routerLink="/register">
+
+      Register
+
+     </a>
+   </ng-container>
+
+   <ng-container *ngIf="isAdminLoggedIn">
+     <a class="btn btn-light ms-2" routerLink="/admin-dashboard">Admin Dashboard</a>
+   </ng-container>
+
+  </div>
+
+  <ng-container *ngIf="isLoggedIn">
+     <span class="navbar-text text-light ms-auto me-3 fw-bold">
+       <i class="bi bi-person-circle"></i> {{userName}}
+     </span>
+     <button
+       class="btn btn-danger"
+       (click)="logout()">
+       Logout
+     </button>
+  </ng-container>
+
+  <ng-container *ngIf="isAdminLoggedIn">
+     <span class="navbar-text text-light ms-auto me-3 fw-bold">
+       <i class="bi bi-person-circle"></i> Admin
+     </span>
+     <button
+       class="btn btn-danger"
+       (click)="logout()">
+       Logout
+     </button>
+  </ng-container>
+
+ </div>
+
+</nav>

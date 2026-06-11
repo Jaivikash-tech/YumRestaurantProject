@@ -1,0 +1,29 @@
+<div class="container mt-4">
+
+  <h2>Select Address</h2>
+
+  <div
+    class="card p-3 mb-2"
+    *ngFor="let address of addresses">
+
+    <input
+      type="radio"
+      name="address"
+      [value]="address._id"
+      (change)="selectedAddress=address._id">
+
+    {{address.fullName}}
+    -
+    {{address.city}}
+
+  </div>
+
+  <button
+    class="btn btn-success mt-3"
+    (click)="placeOrder()">
+
+    Place Order
+
+  </button>
+
+</div>

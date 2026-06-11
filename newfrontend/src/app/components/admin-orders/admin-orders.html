@@ -1,0 +1,43 @@
+<div class="container mt-4">
+
+  <h2>All Orders</h2>
+
+  <table class="table">
+
+    <tr>
+      <th>Order ID</th>
+      <th>Amount</th>
+      <th>Status</th>
+    </tr>
+
+    <tr
+      *ngFor="let order of orders">
+
+      <td>{{order._id}}</td>
+
+      <td>
+        ₹{{order.totalAmount}}
+      </td>
+
+      <td>
+
+        {{order.status}}
+
+        <button
+          class="btn btn-success ms-2"
+          (click)="updateStatus(
+             order._id,
+             'Delivered'
+          )">
+
+          Deliver
+
+        </button>
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>
