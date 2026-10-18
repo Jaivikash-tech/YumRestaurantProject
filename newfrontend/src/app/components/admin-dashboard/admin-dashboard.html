@@ -1,0 +1,154 @@
+<div class="admin-dashboard">
+
+  <!-- Header Bar -->
+  <div class="admin-header">
+    <div class="header-left">
+      <div class="header-icon">
+        <i class="fa-solid fa-store"></i>
+      </div>
+      <div>
+        <h1 class="header-title">Admin Dashboard</h1>
+        <p class="header-subtitle">Manage your menu items</p>
+      </div>
+    </div>
+
+    <button class="btn-logout" (click)="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </button>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <h2 class="section-title">
+        <i class="fa-solid fa-utensils"></i>
+        Menu Items
+      </h2>
+      <span class="badge-count">{{ filteredFoods.length }} items</span>
+    </div>
+
+    <div class="toolbar-right">
+
+      <!-- Search -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          placeholder="Search by name or category..."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="applyFilter()"
+          class="search-input"
+        />
+      </div>
+
+      <!-- Add Button -->
+      <a class="btn-primary-add" routerLink="/add-food">
+        <i class="fa-solid fa-circle-plus"></i>
+        Add Food
+      </a>
+    </div>
+  </div>
+
+  <!-- Food Table -->
+  <div class="table-card">
+    <table class="food-table">
+      <thead>
+        <tr>
+          <th class="col-image">Image</th>
+          <th class="col-name">Name</th>
+          <th class="col-category">Category</th>
+          <th class="col-price">Price</th>
+          <th class="col-status">Status</th>
+          <th class="col-actions">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let food of filteredFoods; let i = index" class="food-row">
+
+          <td class="col-image">
+            <div class="food-img-wrapper">
+
+              <img *ngIf="food.image" [src]="food.image" [alt]="food.name" class="food-img" />
+
+              <div *ngIf="!food.image" class="food-img-placeholder">
+                <i class="fa-regular fa-image"></i>
+              </div>
+
+            </div>
+          </td>
+
+          <td class="col-name">
+            <span class="food-name">{{ food.name }}</span>
+            <span class="food-desc" *ngIf="food.description">{{ food.description }}</span>
+          </td>
+
+          <td class="col-category">
+            <span class="category-badge">{{ food.category }}</span>
+          </td>
+
+          <td class="col-price">
+            <span class="price-text">&#8377;{{ food.price }}</span>
+          </td>
+
+          <td class="col-status">
+            <span class="status-badge" [class.active]="food.isActive" [class.inactive]="!food.isActive">
+              {{ food.isActive ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+
+          <td class="col-actions">
+            <div class="inline-actions">
+
+              <button class="btn-icon edit" (click)="editFood(food._id, $event)" title="Edit">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Edit
+              </button>
+
+              <button class="btn-icon delete" (click)="requestDelete(food, $event)" title="Delete">
+                <i class="fa-solid fa-trash"></i>
+                Delete
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+
+        <tr *ngIf="filteredFoods.length === 0 && !loading">
+          <td colspan="6" class="empty-state">
+            <i class="fa-regular fa-face-frown"></i>
+            <p class="empty-title">No food items found</p>
+            <p class="empty-subtitle">Try adjusting your search or add a new item.</p>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-overlay" *ngIf="showDeleteModal" (click)="cancelDelete()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+
+      <div class="modal-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+
+      <h3 class="modal-title">Delete Food Item</h3>
+
+      <p class="modal-text">
+        Are you sure you want to delete <strong>{{ foodToDelete?.name }}</strong>? This action will mark the item as inactive.
+      </p>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="cancelDelete()">Cancel</button>
+        <button class="btn-confirm-delete" (click)="confirmDelete()">Delete</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+
+  <div class="card shadow-lg border-0 rounded-4 col-md-5">
+
+    <div class="card-body p-5">
+
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Create Account 🚀</h2>
+        <p class="text-muted">
+          Register to continue
+        </p>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Name"
+          [(ngModel)]="name">
+        <label for="name">Full Name</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          [(ngModel)]="email">
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="form-floating mb-4">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+          [(ngModel)]="password">
+        <label for="password">Password</label>
+      </div>
+
+      <button
+        class="btn btn-success btn-lg w-100 mb-3"
+        (click)="register()">
+        Register
+      </button>
+
+      <div class="text-center">
+        <span class="text-muted">
+          Already have an account?
+        </span>
+        <a routerLink="/login" class="text-decoration-none fw-bold ms-1">
+          Login
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

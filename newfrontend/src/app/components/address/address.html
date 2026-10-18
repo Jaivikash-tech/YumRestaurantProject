@@ -1,0 +1,101 @@
+<div class="container mt-4">
+
+  <h2>Delivery Address</h2>
+
+  <div class="card p-3 mb-4">
+
+    <input
+      class="form-control mb-2"
+      placeholder="Full Name"
+      [(ngModel)]="fullName">
+
+    <input
+      class="form-control mb-2"
+      placeholder="Mobile"
+      [(ngModel)]="mobile">
+
+    <input
+      class="form-control mb-2"
+      placeholder="House No"
+      [(ngModel)]="houseNo">
+
+    <input
+      class="form-control mb-2"
+      placeholder="Street"
+      [(ngModel)]="street">
+
+    <input
+      class="form-control mb-2"
+      placeholder="City"
+      [(ngModel)]="city">
+
+    <input
+      class="form-control mb-2"
+      placeholder="State"
+      [(ngModel)]="state">
+
+    <input
+      class="form-control mb-2"
+      placeholder="Pincode"
+      [(ngModel)]="pincode">
+
+    <button
+      class="btn btn-success"
+      (click)="saveAddress()">
+
+      Save Address
+
+    </button>
+
+  </div>
+
+  <div
+    class="card p-3 mb-2"
+    *ngFor="let address of addresses">
+
+    <h5>
+      {{address.fullName}}
+    </h5>
+
+    <p>
+
+      {{address.houseNo}},
+      {{address.street}},
+      {{address.city}}
+
+    </p>
+
+    <button
+      class="btn btn-danger"
+      (click)="deleteAddress(address._id)">
+
+      Delete
+
+    </button>
+
+  </div>
+
+  <div
+  class="card p-3 mb-2"
+  *ngFor="let address of addresses">
+
+  <input
+    type="radio"
+    name="address"
+    [value]="address._id"
+    (change)="selectedAddressId = address._id">
+
+  {{address.fullName}}
+  - {{address.city}}
+
+</div>
+
+<button
+  class="btn btn-success"
+  (click)="placeOrder()">
+
+  Place Order
+
+</button>
+
+</div>

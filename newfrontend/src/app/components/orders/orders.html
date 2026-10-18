@@ -1,0 +1,26 @@
+<div class="container mt-4">
+
+  <h2>My Orders</h2>
+
+  <div
+    class="card mb-3 p-3"
+    *ngFor="let order of orders">
+
+    <h5>
+      Order ID :
+      {{order._id}}
+    </h5>
+
+    <p>
+      Amount :
+      ₹{{order.totalAmount}}
+    </p>
+
+    <p>
+      Status :
+      {{order.status}}
+    </p>
+
+  </div>
+
+</div>

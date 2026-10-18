@@ -1,0 +1,62 @@
+<div class="form-page">
+  <div class="form-card">
+    <div class="form-header">
+      <div class="form-icon edit-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+          <path d="m15 5 4 4"/>
+        </svg>
+      </div>
+      <h2 class="form-title">Edit Food Item</h2>
+      <p class="form-subtitle">Update the details for this menu item</p>
+    </div>
+
+    <div class="form-body">
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input class="form-input" [(ngModel)]="name" placeholder="e.g. Chicken Biryani" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <input class="form-input" [(ngModel)]="description" placeholder="A short description of the dish" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <input class="form-input" [(ngModel)]="category" placeholder="e.g. Main Course" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Price (₹)</label>
+          <input class="form-input" type="number" [(ngModel)]="price" placeholder="0" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Image URL</label>
+        <input class="form-input" [(ngModel)]="image" placeholder="https://example.com/image.jpg" />
+      </div>
+
+      <div class="image-preview" *ngIf="image">
+        <img [src]="image" alt="Preview" />
+      </div>
+
+      <div class="form-actions">
+        <a class="btn-back" routerLink="/admin-dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="M19 12H5"/>
+          </svg>
+          Back
+        </a>
+        <button class="btn-update" (click)="updateFood()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+          Update Food
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
