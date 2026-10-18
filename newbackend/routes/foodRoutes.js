@@ -57,7 +57,7 @@ router.put(
 router.delete(
   "/:id",
   authMiddleWare,
-  adminMiddleare,
+  adminMiddleWare,
   foodController.deleteFood
 );
 
