@@ -2,10 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-const authMiddleware =
+const authMiddleWare =
 require("../middleware/authMiddleWare");
 
-const adminMiddleware =
+const adminMiddleWare =
 require("../middleware/adminMiddleWare");
 
 const foodController =
@@ -57,7 +57,7 @@ router.put(
 router.delete(
   "/:id",
   authMiddleWare,
-  adminMiddleWare,
+  adminMiddleare,
   foodController.deleteFood
 );
 
