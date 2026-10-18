@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 const authMiddleware =
-require("../middleware/authMiddleware");
+require("../middleware/authMiddleWare");
 
 const adminMiddleware =
-require("../middleware/adminMiddleware");
+require("../middleware/adminMiddleWare");
 
 const foodController =
 require("../controllers/foodController");
