@@ -22,8 +22,8 @@ router.get(
 // Admin Foods
 router.get(
   "/admin",
-  authMiddleware,
-  adminMiddleware,
+  authMiddleWare,
+  adminMiddleWare,
   foodController.getAllFoods
 );
 
@@ -38,8 +38,8 @@ router.get(
 // Add Food
 router.post(
   "/",
-  authMiddleware,
-  adminMiddleware,
+  authMiddleWare,
+  adminMiddleWare,
   foodController.addFood
 );
 
@@ -47,8 +47,8 @@ router.post(
 // Update Food
 router.put(
   "/:id",
-  authMiddleware,
-  adminMiddleware,
+  authMiddleWare,
+  adminMiddleWare,
   foodController.updateFood
 );
 
@@ -56,8 +56,8 @@ router.put(
 // Soft Delete
 router.delete(
   "/:id",
-  authMiddleware,
-  adminMiddleware,
+  authMiddleWare,
+  adminMiddleWare,
   foodController.deleteFood
 );
 

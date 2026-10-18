@@ -3,34 +3,34 @@ const express = require("express");
 const router = express.Router();
 
 const authMiddleware =
-require("../middleware/authMiddleware");
+require("../middleware/authMiddleWare");
 
 const addressController =
 require("../controllers/addressController");
 
 router.post(
   "/",
-  authMiddleware,
+  authMiddleWare,
   addressController.addAddress
 );
 
 router.get(
   "/",
-  authMiddleware,
+  authMiddleWare,
   addressController.getAddresses
 );
 
 
 router.get(
   "/:id",
-  authMiddleware,
+  authMiddleWare,
   addressController.getAddressById
 );
 
 
 router.put(
   "/:id",
-  authMiddleware,
+  authMiddleWare,
   addressController.updateAddress
 );
 
@@ -38,7 +38,7 @@ router.put(
 // Delete Address
 router.delete(
   "/:id",
-  authMiddleware,
+  authMiddleWare,
   addressController.deleteAddress
 );
 

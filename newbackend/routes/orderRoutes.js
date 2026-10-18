@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 const authMiddleware =
-require("../middleware/authMiddleware");
+require("../middleware/authMiddleWare");
 
 const adminMiddleware =
-require("../middleware/adminMiddleware");
+require("../middleware/adminMiddleWare");
 
 const orderController =
 require("../controllers/orderController");
@@ -15,7 +15,7 @@ require("../controllers/orderController");
 // Place Order
 router.post(
   "/",
-  authMiddleware,
+  authMiddleWare,
   orderController.placeOrder
 );
 
@@ -23,7 +23,7 @@ router.post(
 // My Orders
 router.get(
   "/my-orders",
-  authMiddleware,
+  authMiddleWare,
   orderController.getMyOrders
 );
 
@@ -31,7 +31,7 @@ router.get(
 // Single Order
 router.get(
   "/:id",
-  authMiddleware,
+  authMiddleWare,
   orderController.getOrderById
 );
 
@@ -39,8 +39,8 @@ router.get(
 // Admin Orders
 router.get(
   "/admin/all",
-  authMiddleware,
-  adminMiddleware,
+  authMiddleWare,
+  adminMiddleWare,
   orderController.getAllOrders
 );
 
@@ -48,8 +48,8 @@ router.get(
 // Update Status
 router.put(
   "/admin/:id",
-  authMiddleware,
-  adminMiddleware,
+  authMiddleWare,
+  adminMiddleWare,
   orderController.updateOrderStatus
 );
 

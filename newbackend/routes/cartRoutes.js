@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const authMiddleware =
-require("../middleware/authMiddleware");
+require("../middleware/authMiddleWare");
 
 const cartController =
 require("../controllers/cartController");
@@ -12,7 +12,7 @@ require("../controllers/cartController");
 // Add To Cart
 router.post(
   "/",
-  authMiddleware,
+  authMiddleWare,
   cartController.addToCart
 );
 
@@ -20,7 +20,7 @@ router.post(
 // View Cart
 router.get(
   "/",
-  authMiddleware,
+  authMiddleWare,
   cartController.getCart
 );
 
@@ -28,7 +28,7 @@ router.get(
 // Update Quantity
 router.put(
   "/:id",
-  authMiddleware,
+  authMiddleWare,
   cartController.updateQuantity
 );
 
@@ -36,7 +36,7 @@ router.put(
 // Remove Item
 router.delete(
   "/:id",
-  authMiddleware,
+  authMiddleWare,
   cartController.removeItem
 );
 
@@ -44,7 +44,7 @@ router.delete(
 // Clear Cart
 router.delete(
   "/clear/all",
-  authMiddleware,
+  authMiddleWare,
   cartController.clearCart
 );
 
