@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FoodService {
 
-  apiUrl = 'https://yumrestaurantproject.onrender.com/api/food';
+  apiUrl = 'https://yumrestaurantproject.onrender.com/api/foods';
 
   constructor(
     private http: HttpClient
