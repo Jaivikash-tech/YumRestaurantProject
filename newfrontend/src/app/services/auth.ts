@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private apiUrl =
-    'http://localhost:5000/api/auth';
+  private apiUrl = 'https://yumrestaurantproject.onrender.com/api/auth';
 
   constructor(
     private http: HttpClient

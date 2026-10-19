@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:5000/api/cart';
+  private apiUrl = 'https://yumrestaurantproject.onrender.com/api/cart';
 
   constructor(
     private http: HttpClient

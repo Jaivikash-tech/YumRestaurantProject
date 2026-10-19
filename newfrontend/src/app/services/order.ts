@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrderService {
 
-  private apiUrl =
-    'http://localhost:5000/api/orders';
+  private apiUrl = 'https://yumrestaurantproject.onrender.com/api/orders';
 
   constructor(
     private http: HttpClient
@@ -31,23 +30,15 @@ export class OrderService {
   }
 
   getAllOrders() {
-
-  return this.http.get(
-    'http://localhost:5000/api/orders/admin/all'
-  );
-
+  return this.http.get(`${this.apiUrl}/admin/all`);
 }
 
-updateStatus(
-  orderId: string,
-  status: string
-) {
 
+updateStatus(orderId: string, status: string) {
   return this.http.put(
-    `http://localhost:5000/api/orders/admin/${orderId}`,
+    `${this.apiUrl}/admin/${orderId}`,
     { status }
   );
-
 }
 
 }

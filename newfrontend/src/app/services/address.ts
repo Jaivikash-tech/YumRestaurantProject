@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddressService {
 
-  private apiUrl =
-    'http://localhost:5000/api/address';
+    private apiUrl = 'https://yumrestaurantproject.onrender.com/api/address';
 
   constructor(
     private http: HttpClient
